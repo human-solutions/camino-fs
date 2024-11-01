@@ -1,0 +1,12 @@
+[package]
+license = "MIT"
+description = "Do unix-style file operations directly on camino paths with useful error messages."
+name = "camino-fs"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+serde = ["camino/serde1"]
+
+[dependencies]
+camino = "1.1"
