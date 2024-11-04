@@ -34,7 +34,7 @@ pub trait Utf8PathExt {
     /// Example:
     ///
     /// ```
-    /// use camino_fs::prelude::*;
+    /// use camino_fs::*;
     ///
     /// let path = Utf8Path::new("file.txt").join_ext("gz");
     /// assert_eq!(path.all_extensions(), Some("txt.gz"));
