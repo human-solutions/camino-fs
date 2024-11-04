@@ -2,7 +2,7 @@
 license = "MIT"
 description = "Do unix-style file operations directly on camino paths with useful error messages."
 name = "camino-fs"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 
 [features]

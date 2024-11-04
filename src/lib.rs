@@ -148,7 +148,7 @@ impl Utf8PathExt for Utf8Path {
 
                 if src_path.is_dir() {
                     entries.extend(src_path.ls());
-                    src_path.mkdir()?;
+                    dest_path.mkdir()?;
                 } else {
                     fs_copy(&src_path, &dest_path)?;
                 }
@@ -193,10 +193,7 @@ impl Utf8PathExt for Utf8Path {
     }
 
     fn mkdirs(&self) -> io::Result<()> {
-        if !self.exists() {
-            fs_create_dir_all(self)?;
-        }
-        Ok(())
+        fs_create_dir_all(self)
     }
 
     fn ls(&self) -> Ls {
