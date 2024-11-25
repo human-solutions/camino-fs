@@ -97,13 +97,16 @@ impl Iterator for Ls {
             if path.is_dir() && (self.recurse_if_fn)(rel_path) {
                 Self::add_dir_entries(&mut self.entries, &path);
             }
+            let is_file = path.is_file();
+            let is_dir = path.is_dir();
+
             if self.relative_paths {
                 path = rel_path.to_path_buf();
             }
             match self.filter {
                 LsFilter::All => return Some(path),
-                LsFilter::Files if path.is_file() => return Some(path),
-                LsFilter::Dirs if path.is_dir() => return Some(path),
+                LsFilter::Files if is_file => return Some(path),
+                LsFilter::Dirs if is_dir => return Some(path),
                 _ => {}
             }
         }
